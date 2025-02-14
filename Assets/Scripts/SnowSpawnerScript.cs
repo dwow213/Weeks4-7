@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class SnowSpawnerScript : MonoBehaviour
 {
     
+    //variables for sliders of snow density and speed
     public Slider snowDensity;
     public Slider snowSpeed;
+
+    //variable for the snowflake object
     public GameObject snowflake;
     
     // Start is called before the first frame update
