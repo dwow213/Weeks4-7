@@ -12,6 +12,8 @@ public class SnowSpawnerScript : MonoBehaviour
 
     //variable for the snowflake object
     public GameObject snowflake;
+
+    public List<GameObject> snowflakes = new List<GameObject>();
     
     // Start is called before the first frame update
     void Start()
@@ -24,10 +26,12 @@ public class SnowSpawnerScript : MonoBehaviour
     {
         //for loop that will spawn a large amount of snowflakes every frame
         //the amount spawned is dependent on the snowDensity slider
-        for(int i = 0; i < 5 * snowDensity.value; i++)
+        for(int i = 0; i < snowDensity.value; i++)
         {
-            //create a snowflake
-            GameObject snowflakeObject = Instantiate(snowflake);
+            //create a snowflake and add it to the snowflakes list
+            snowflakes.Add(Instantiate(snowflake));
+            //set the variable to the most recent object added to the list
+            GameObject snowflakeObject = snowflakes[snowflakes.Count - 1];
             //randomize its initial x-position while keeping it initial y-position above the camera
             snowflakeObject.transform.position = new Vector2(Random.Range(-8, 44), 6);
 
@@ -35,5 +39,18 @@ public class SnowSpawnerScript : MonoBehaviour
             snowflakeObject.GetComponent<SnowflakeScript>().xVelocity = Random.Range(-5, -1) * snowSpeed.value;
             snowflakeObject.GetComponent<SnowflakeScript>().yVelocity = Random.Range(-5, -1) * snowSpeed.value;
         }
+    }
+
+    //a function that removes all snowflakes from the screen
+    public void Melt()
+    {
+        //for loop that destroys all game objects in the scene
+        for(int i = 0; i < snowflakes.Count; i++)
+        {
+            Destroy(snowflakes[i]);
+        }
+
+        //reset the snowflakes list
+        snowflakes = new List<GameObject>();
     }
 }
