@@ -55,7 +55,7 @@ public class BusScript : MonoBehaviour
         }
 
         //if the bus has reached the turn of the road in the background
-        if (pos.x >= 26 && pos.y == 3.5)
+        if (pos.x >= 26 && pos.y == 4)
         {
             //reset x-position to be near the border
             pos.x = 26;
@@ -66,12 +66,31 @@ public class BusScript : MonoBehaviour
         }
 
         //if the bus has reach the turn of the vertical road into the foreground road
-        if (pos.y <= -3.5 && pos.x == 26)
+        if (pos.y <= -2 && pos.x == 26)
         {
             //reset y-position to be near the border
-            pos.y = -3.5f;
+            pos.y = -2;
             //cause the bus to move horizontally
             horizontalMov = true;
+        }
+
+        //if the bus is moving horizontally
+        if (horizontalMov)
+        {
+            //if the bus is moving to the right
+            if (horizontalDir > 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            }
+            //if the bus is moving the the left
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            }
+        }
+        else // if the bus is moving vertically 
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[2];
         }
 
         //update position of the bus

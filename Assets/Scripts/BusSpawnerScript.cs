@@ -62,7 +62,7 @@ public class BusSpawnerScript : MonoBehaviour
     {
         //instantiates a bus and sets its position offscreen on the road in the background
         GameObject busObject = Instantiate(bus);
-        busObject.transform.position = new Vector2(-15, 3.5f);
+        busObject.transform.position = new Vector2(-15, 4);
 
         //set up the bus's snow density and speed sliders
         busObject.GetComponent<BusScript>().snowDensity = snowDensity;

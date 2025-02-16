@@ -43,17 +43,11 @@ public class PersonSpawner : MonoBehaviour
                 //set the person's position
                 people[i].transform.position = new Vector3(x, y);
 
-                //randomly select a sprite for the person to have
-                //if the person is near a bench, make it possible for them to have sitting sprites
-                if (i == 3)
-                {
-                    people[i].GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, 8)];
+                //set the person's sprite randomly
+                people[i].GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, 5)];
 
-                }
-                else //if they are not, don't make it possible for them to have sitting sprites
-                {
-                    people[i].GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, 5)];
-                }
+                //set the person's color sprite randomly
+                people[i].GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 0, 1, 0.75f, 1);
 
             }
             else //50% chance failed and the index will be set to null

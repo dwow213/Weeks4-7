@@ -13,6 +13,7 @@ public class SnowSpawnerScript : MonoBehaviour
     //variable for the snowflake object
     public GameObject snowflake;
 
+    //list for the snowflake objects
     public List<GameObject> snowflakes = new List<GameObject>();
     
     // Start is called before the first frame update

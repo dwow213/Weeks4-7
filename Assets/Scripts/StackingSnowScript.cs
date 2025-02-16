@@ -29,7 +29,7 @@ public class StackingSnowScript : MonoBehaviour
     void Update()
     {
         //increase the snow amount based on the snow density slider and snow speed slider
-        snowAmount += 1 * (snowDensity.value * Mathf.Pow(snowSpeed.value, 3));
+        snowAmount += 1 * (snowDensity.value * Mathf.Pow(snowSpeed.value, 3)) * Time.deltaTime;
 
         //change the sprite based on how much snow it has
         //no snow
