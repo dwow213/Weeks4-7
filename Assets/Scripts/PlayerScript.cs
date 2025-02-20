@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
+    
+    //tank script
 
     public float speed = 10;
 
